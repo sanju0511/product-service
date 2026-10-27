@@ -1,0 +1,17 @@
+
+services:
+  products-db:
+    image: mysql:8.4
+    container_name: shopsphere-products-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: local_root_password
+      MYSQL_DATABASE: products_db
+      MYSQL_USER: products_user
+      MYSQL_PASSWORD: products_password
+    ports:
+      - "3308:3306"
+    volumes:
+      - products_data:/var/lib/mysql
+
+volumes:
+  products_data:
